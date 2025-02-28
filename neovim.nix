@@ -13,7 +13,7 @@ let
   startPlugins = [
     vimPlugins.telescope-nvim
     vimPlugins.nvim-treesitter.withAllGrammars
-		vimPlugins.snacks-nvim
+  vimPlugins.snacks-nvim
   ];
 
   foldPlugins = builtins.foldl'
@@ -48,7 +48,7 @@ symlinkJoin {
   postBuild = ''
         wrapProgram $out/bin/nvim \
           --add-flags '-u' \
-     	    --add-flags '${./config/plugin/init.lua}' \
+          --add-flags '${./config/plugin/init.lua}' \
           --add-flags '--cmd' \
           --add-flags "'set packpath^=${packpath} | set runtimepath^=${packpath}'" \
           --set-default NVIM_APPNAME nvim-custom
